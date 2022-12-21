@@ -4,7 +4,7 @@
 import os.path
 from PIL import ImageEnhance, Image
 
-#path = 'C:\Users\aurel\PycharmProjects\pythonProject13'
+
 # Priklausomai nuo pasirinkimo, išsaugotų arba ne.
 # Išsaugoti faile, prie originalaus pavadinimo pridėję pvz. '_modified', tarkime dog_modified.jpg.
 def super_foto(fotke, kontrastas, spalva, astrumas, ryskumas, save=False):
