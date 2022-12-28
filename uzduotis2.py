@@ -6,7 +6,7 @@ from PIL import ImageEnhance, Image
 
 # Priklausomai nuo pasirinkimo, išsaugotų arba ne.
 # Išsaugoti faile, prie originalaus pavadinimo pridėję pvz. '_modified', tarkime dog_modified.jpg.
-def super_foto(fotke, kontrastas, spalva, astrumas, ryskumas, save=False):
+def super_foto(fotke, kontrastas, spalva, astrumas, ryskumas, ar_noriu_issaugoti=False):
     foto = Image.open(fotke)
 
     nuotr = ImageEnhance.Contrast(foto) # kontrastas
@@ -21,13 +21,13 @@ def super_foto(fotke, kontrastas, spalva, astrumas, ryskumas, save=False):
     nuotr = ImageEnhance.Sharpness(foto) # astrumas
     foto = nuotr.enhance(astrumas)
 
-    if save:
-        loc = os.path.splitext(fotke)[0] # kodel cia taip rasom?
-        ext = os.path.splitext(fotke)[1] #ir cia?
-        foto.save(f"{loc}_modified{ext}")
+    if ar_noriu_issaugoti:
+        pavadinimas = os.path.splitext(fotke)[0]
+        galune = os.path.splitext(fotke)[1]
+        foto.save(f"{pavadinimas}_modified{galune}")
     foto.show()
 
-super_foto('dog.jpg', 1.8, 0.6, 1, 1.2, True) # foto pavad, kontr, spalva, rysk, astr, True/false,saugoti ar ne su modified prierasu?
+super_foto('dog.jpg', 3.8, 0.6, 1, 1.2, True) # foto pavad, kontr, spalva, rysk, astr, True/false,saugoti ar ne su modified prierasu?
 
 
 
